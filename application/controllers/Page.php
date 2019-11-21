@@ -1,13 +1,60 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Page extends CI_Controller {
+use BorderCloud\SPARQL\SparqlClient;
+
+class Page extends CI_Controller
+{
 
 	public function index()
 	{
-		$this->load->view('template/header');
-		$this->load->view('pages/index');
-		$this->load->view('template/footer');
+		// $endpoint = "http://localhost:3030/tenagakerja/sparql";
+		// $sc = new SparqlClient();
+		// $sc->setEndpointRead($endpoint);
+		$q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		PREFIX owl: <http://www.w3.org/2002/07/owl#>
+		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+		PREFIX : <http://www.filkom.ub.ac.id/>
+		SELECT ?subject 
+			WHERE { ?subject a :LabRiset}";
+		// $rows = $sc->query($q, 'rows');
+		// $err = $sc->getErrors();
+		// if ($err) {
+		// 	print_r($err);
+		// 	throw new Exception(print_r($err, true));
+		// }
+
+		// foreach ($rows["result"]["variables"] as $variable) {
+		// 	printf($variable);
+		// 	echo "\n";
+		// }
+		// echo "\n";
+
+		// foreach ($rows["result"]["rows"] as $row) {
+		// 	foreach ($rows["result"]["variables"] as $variable) {
+		// 		printf($row[$variable]);
+		// 		echo '|';
+		// 	}
+		// 	echo "\n";
+		// }
+
+		include("httpful.phar");
+
+		$sparql = "PREFIX ub: <http://ub.ac.id#>
+		SELECT ?nama
+	WHERE {ub:filkom ub:ketua ?dekan . ?dekan ub:nama ?nama}";
+
+		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($q);
+		$res = \Httpful\Request::get($url)->expectsJson()->send();
+		$arr = json_decode($res);
+
+		print_r($arr);
+		echo '<br>';
+		// echo $arr->results->bindings[0]->nama->value;
+		// $this->load->view('template/header');
+		// $this->load->view('pages/index');
+		// $this->load->view('template/footer');
 	}
 
 	public function viewtambahanggota()
