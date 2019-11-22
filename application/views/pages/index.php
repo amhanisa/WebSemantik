@@ -1,5 +1,3 @@
-
-
 <!-- page content -->
 <div class="right_col" role="main">
   <div class="">
@@ -12,7 +10,7 @@
       <div class="col-md-12 col-sm-12  ">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Daftar Seluruh Staff</h2>
+            <h2><?= $title ?></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -40,26 +38,18 @@
                 </thead>
 
                 <tbody>
-                  <tr class="even pointer">
-                    <td class="a-center ">
-                      <input type="checkbox" class="flat" name="table_records">
-                    </td>
-                    <td class=" ">John Blank L</td>
-                    <td class=" last">
-                      <a href="<?php echo site_url('page/edit');?>">Edit </a>
-                      <a href="#">Hapus </a>
-                    </td>
-                  </tr>
-                  <tr class="even pointer">
-                    <td class="a-center ">
-                      <input type="checkbox" class="flat" name="table_records">
-                    </td>
-                    <td class=" ">Pratama Aksara</td>
-                    <td class=" last">
-                      <a href="<?php echo site_url('page/edit');?>">Edit </a>
-                      <a href="#">Hapus </a>
-                    </td>
-                  </tr>
+                  <?php foreach ($result as $r) : ?>
+                    <tr class="even pointer">
+                      <td class="a-center ">
+                        <input type="checkbox" class="flat" name="table_records">
+                      </td>
+                      <td class=" "><?= $r->nama->value ?></td>
+                      <td class=" last">
+                        <a href="<?php echo site_url('page/edit/' . $r->subject->value); ?>">Edit </a>
+                        <a href="#">Hapus </a>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
 
                 </tbody>
               </table>
@@ -71,4 +61,3 @@
   </div>
 </div>
 <!-- /page content -->
-
