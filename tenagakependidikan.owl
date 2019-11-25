@@ -161,6 +161,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/Sekretaris">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Sekretaris</rdfs:label>
     </owl:Class>
     
 
@@ -169,6 +170,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafAkademik">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf Akademik</rdfs:label>
     </owl:Class>
     
 
@@ -177,6 +179,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafBPTIK">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf BPTIK</rdfs:label>
     </owl:Class>
     
 
@@ -185,6 +188,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafGJM">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf GJM</rdfs:label>
     </owl:Class>
     
 
@@ -193,6 +197,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafKemahasiswaan">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Kemahasiswaan</rdfs:label>
     </owl:Class>
     
 
@@ -201,6 +206,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafKepegawaian">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Kepegawaian</rdfs:label>
     </owl:Class>
     
 
@@ -209,6 +215,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafKerjasamaKehumasan">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Kerjasama dan Kehumasan</rdfs:label>
     </owl:Class>
     
 
@@ -217,6 +224,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafKeuangan">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Keuangan</rdfs:label>
     </owl:Class>
     
 
@@ -225,6 +233,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafLaboratorium">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf Laboratorium</rdfs:label>
     </owl:Class>
     
 
@@ -233,6 +242,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafPSIK">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf PSIK</rdfs:label>
     </owl:Class>
     
 
@@ -241,6 +251,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafPersuratan">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Persuratan</rdfs:label>
     </owl:Class>
     
 
@@ -249,6 +260,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafRuangBaca">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/TenagaKependidikan"/>
+        <rdfs:label>Staf Ruang Baca</rdfs:label>
     </owl:Class>
     
 
@@ -265,6 +277,7 @@
 
     <owl:Class rdf:about="http://www.filkom.ub.ac.id/StafUmumPerlengkapan">
         <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id/StafTataUsaha"/>
+        <rdfs:label>Staf Umum dan Perlengkapan</rdfs:label>
     </owl:Class>
     
 

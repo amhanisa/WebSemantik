@@ -19,14 +19,14 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT ?nama
+		SELECT ?subject ?nama
 			WHERE{
-				?subject rdfs:subClassOf :StafTataUsaha .
-				?entity rdf:type ?subject .
-				?entity :nama ?nama
+				?entity rdfs:subClassOf :StafTataUsaha .
+				?subject rdf:type ?entity .
+				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -37,14 +37,14 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
-				?subject rdfs:subClassOf :TenagaKependidikan .
-				?entity rdf:type ?subject .
-				?entity :nama ?nama
+				?entity rdfs:subClassOf :TenagaKependidikan .
+				?subject rdf:type ?entity .
+				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query2);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query2);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result2 = $arr->results->bindings;
@@ -56,6 +56,8 @@ class Page extends CI_Controller
 		// var_dump($result);
 		$data["title"] = "Data Seluruh Staf";
 		$data["result"] = $result;
+
+		// var_dump($result);
 		$this->load->view('template/header');
 		$this->load->view('pages/index', $data);
 		$this->load->view('template/footer');
@@ -68,10 +70,27 @@ class Page extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	public function edit()
+	public function view()
 	{
+		$username = $this->input->get("username");
+
+		$query = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		PREFIX owl: <http://www.w3.org/2002/07/owl#>
+		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+		PREFIX : <http://www.filkom.ub.ac.id/>
+		SELECT ?nama ?email ?ruangan ?type
+			WHERE{
+				 :" . $username . " :nama ?nama ; :email ?email ; :ruangan ?ruangan ; a ?class . ?class rdfs:label ?type
+			}";
+
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$res = \Httpful\Request::get($url)->expectsJson()->send();
+		$arr = json_decode($res);
+		$result = $arr->results->bindings;
+		$data["result"] = $result;
 		$this->load->view('template/header');
-		$this->load->view('pages/edit');
+		$this->load->view('pages/view', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -90,7 +109,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -110,7 +129,7 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafLaboratorium .
 				?subject :stafLaboratorium ?lab . 
@@ -118,7 +137,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -137,7 +156,7 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafAkademik .
 				?subject :stafAkademik ?prodi . 
@@ -145,7 +164,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -165,13 +184,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafKeuangan .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -190,13 +209,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafUmumPerlengkapan .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -215,13 +234,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafKemahasiswaan .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -240,13 +259,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafKerjasamaKehumasan .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -265,13 +284,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafKepegawaian .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -290,13 +309,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafPersuratan .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -315,13 +334,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :Sekretaris .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -340,13 +359,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafBPTIK .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -365,13 +384,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafPSIK .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -390,13 +409,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafGJM .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -415,13 +434,13 @@ class Page extends CI_Controller
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX : <http://www.filkom.ub.ac.id/>
-		SELECT DISTINCT ?nama
+		SELECT DISTINCT ?subject ?nama
 			WHERE{
 				?subject a :StafRuangBaca .
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakerja/query?query=' . urlencode($query);
+		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -433,7 +452,7 @@ class Page extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	// $endpoint = "http://localhost:3030/tenagakerja/sparql";
+	// $endpoint = "http://localhost:3030/tenagakependidikan/sparql";
 	// $sc = new SparqlClient();
 	// $sc->setEndpointRead($endpoint);
 	// $rows = $sc->query($q, 'rows');

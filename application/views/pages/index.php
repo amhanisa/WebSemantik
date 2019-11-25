@@ -45,8 +45,8 @@
                       </td>
                       <td class=" "><?= $r->nama->value ?></td>
                       <td class=" last">
-                        <a href="<?php echo site_url('page/edit/' . $r->subject->value); ?>">Edit </a>
-                        <a href="#">Hapus </a>
+                        <a href="<?php echo base_url('page/view?username=' . str_replace("http://www.filkom.ub.ac.id/", "", $r->subject->value)); ?>"> View </a>
+                        <!-- <a href="#">Hapus </a> -->
                       </td>
                     </tr>
                   <?php endforeach ?>
