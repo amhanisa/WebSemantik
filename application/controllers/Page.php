@@ -5,6 +5,9 @@ use BorderCloud\SPARQL\SparqlClient;
 
 class Page extends CI_Controller
 {
+	public $address = "http://localhost:3030/tenagakependidikan/query?query=";
+	public $address_lain = "http://localhost:3030/struktur/query?query=";
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -26,7 +29,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -44,7 +47,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query2);
+		$url = $this->address . urlencode($query2);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result2 = $arr->results->bindings;
@@ -84,13 +87,37 @@ class Page extends CI_Controller
 				 :" . $username . " :nama ?nama ; :email ?email ; :ruangan ?ruangan ; a ?class . ?class rdfs:label ?type
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
 		$data["result"] = $result;
 		$this->load->view('template/header');
 		$this->load->view('pages/view', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function view_lain()
+	{
+		$username = $this->input->get("username");
+
+		$query = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		PREFIX owl: <http://www.w3.org/2002/07/owl#>
+		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+		PREFIX : <http://www.filkom.ub.ac.id#>
+		SELECT ?nama ?email ?ruangan ?type
+			WHERE{
+				 :" . $username . " :name ?nama ; :email ?email ; :room ?ruangan ; :is_head_of ?type
+			}";
+
+		$url = $this->address_lain . urlencode($query);
+		$res = \Httpful\Request::get($url)->expectsJson()->send();
+		$arr = json_decode($res);
+		$result = $arr->results->bindings;
+		$data["result"] = $result;
+		$this->load->view('template/header');
+		$this->load->view('pages/view_lain', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -109,12 +136,11 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
 
-		var_dump($result);
 		$data["title"] = "Data Staf Lab Riset";
 		$data["result"] = $result;
 		$this->load->view('template/header');
@@ -137,7 +163,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -164,7 +190,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -190,7 +216,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -215,7 +241,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -240,7 +266,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -265,7 +291,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -290,7 +316,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -315,7 +341,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -340,7 +366,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -365,7 +391,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -390,7 +416,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -415,7 +441,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -440,7 +466,7 @@ class Page extends CI_Controller
 				?subject :nama ?nama
 			}";
 
-		$url = 'http://localhost:3030/tenagakependidikan/query?query=' . urlencode($query);
+		$url = $this->address . urlencode($query);
 		$res = \Httpful\Request::get($url)->expectsJson()->send();
 		$arr = json_decode($res);
 		$result = $arr->results->bindings;
@@ -449,6 +475,31 @@ class Page extends CI_Controller
 		$data["result"] = $result;
 		$this->load->view('template/header');
 		$this->load->view('pages/index', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function kasubag()
+	{
+		$query = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		PREFIX owl: <http://www.w3.org/2002/07/owl#>
+		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+		PREFIX : <http://www.filkom.ub.ac.id#>
+		SELECT DISTINCT ?subject ?nama
+			WHERE{
+				?subject a :head_of_unit .
+				?subject :name ?nama
+			}";
+
+		$url = $this->address_lain . urlencode($query);
+		$res = \Httpful\Request::get($url)->expectsJson()->send();
+		$arr = json_decode($res);
+		$result = $arr->results->bindings;
+
+		$data["title"] = "Data Kepala Unit";
+		$data["result"] = $result;
+		$this->load->view('template/header');
+		$this->load->view('pages/kasubag', $data);
 		$this->load->view('template/footer');
 	}
 

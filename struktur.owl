@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.filkom.ub.ac.id"
+     xml:base="http://www.filkom.ub.ac.id"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:www="http://www.filkom.ub.ac.id#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.filkom.ub.ac.id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#has_member -->
+
+    <owl:ObjectProperty rdf:about="http://www.filkom.ub.ac.id#has_member">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#member"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#has_subOrganization -->
+
+    <owl:ObjectProperty rdf:about="http://www.filkom.ub.ac.id#has_subOrganization">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#administration"/>
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#department"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#sub_administration"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#head_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.filkom.ub.ac.id#head_by">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#member"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#is_head_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.filkom.ub.ac.id#is_head_of">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#is_member_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.filkom.ub.ac.id#is_member_of">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:range rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#building -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#building">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#email">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#focus_subject -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#focus_subject">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#identity_number -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#identity_number">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#name">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#room -->
+
+    <owl:DatatypeProperty rdf:about="http://www.filkom.ub.ac.id#room">
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#member"/>
+        <rdfs:domain rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#administration -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#administration">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#department -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#department">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#faculty_leaders -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#faculty_leaders">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#head_of_department -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#head_of_department">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#head_of_programme -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#head_of_programme">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#head_of_unit -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#head_of_unit">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#member"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#laboratory -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#laboratory">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#member -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#member"/>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#organization -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#organization"/>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#other -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#other">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#programme -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#programme">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#senat -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#senat">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#sub_administration -->
+
+    <owl:Class rdf:about="http://www.filkom.ub.ac.id#sub_administration">
+        <rdfs:subClassOf rdf:resource="http://www.filkom.ub.ac.id#administration"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#BPJ -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#BPJ">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#other"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#gembong_edhi_setyawan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#BPPM -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#BPPM">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#other"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#candra_dewi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#DEKAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#DEKAN">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#faculty_leaders"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#wayan_firdaus_mahmudy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Dahnial_Syauqy -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Dahnial_Syauqy">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#teknik_komputer"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dahnial87@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smart Device Engineering</www:focus_subject>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dahnial Syauqy, S.T., M.T., M.Sc.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#GJM -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#GJM">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#other"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#Rekyan_Regasari"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Herman_Tolle -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Herman_Tolle">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_department"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#sistem_informasi"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emang@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multimedia, Game dan Mobile</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197408232000121001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Herman Tolle, Dr. Eng., S.T., M.T.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.62</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Information_System -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Information_System">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#laboratory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Intelligent_Computing_and_Visualization -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Intelligent_Computing_and_Visualization">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#laboratory"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#candra_dewi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#PSIK -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#PSIK">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#other"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#denny_sagita"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Rekyan_Regasari -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Rekyan_Regasari">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_unit"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#GJM"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rekyan.rmp@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rekyan Regasari Mardi Putri, S.T., M.T.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.71</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Robotics -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Robotics">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#laboratory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#SUBBAGIAN_AKADEMIK_DAN_KEMAHASISWAAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#SUBBAGIAN_AKADEMIK_DAN_KEMAHASISWAAN">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#sub_administration"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#SUBBAGIAN_UMUM_DAN_KEUANGAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#SUBBAGIAN_UMUM_DAN_KEUANGAN">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#sub_administration"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#Sri_Suyati_Luhur"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Software_Engineering -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Software_Engineering">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#laboratory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#Sri_Suyati_Luhur -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#Sri_Suyati_Luhur">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_unit"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#SUBBAGIAN_UMUM_DAN_KEUANGAN"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">luhurutami@gmail.com</www:email>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sri Suyati Luhur Utami , S.E </www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_AKADEMIK -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_AKADEMIK">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#faculty_leaders"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#heru_nurwasito"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_KEMAHASISWAAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_KEMAHASISWAAN">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#faculty_leaders"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#edy_santoso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_UMUM_DAN_KEUANGAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_UMUM_DAN_KEUANGAN">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#faculty_leaders"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#suprapto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#achmad_basuki -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#achmad_basuki">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">H</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">abazh@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Berbasis Jaringan</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197411182003121002</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Achmad Basuki, S.T., M.MG., Ph.D.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.4</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#agus_wahyu_widodo -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#agus_wahyu_widodo">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#teknik_informatika"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a_wahyu_w@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197408052001121001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Agus Wahyu Widodo,S.T., M.Cs.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#arif_rahman -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#arif_rahman">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m_arif@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">196604231991111001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muh Arif Rahman, Drs., M.Kom.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.9</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#candra_dewi -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#candra_dewi">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_unit"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#BPPM"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#Intelligent_Computing_and_Visualization"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#int">B</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#int">dewi_candra@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#int">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197711142003122001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#int">Candra Dewi, S.Kom, M.Sc. </www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1.71</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#denny_sagita -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#denny_sagita">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_unit"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#PSIK"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">denny.sagita@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rekayasa Perangkat Lunak</www:focus_subject>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Denny Sagita Rusdianto, S.Kom., M.Kom.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.6</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#dian_eka_ratnawati -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#dian_eka_ratnawati">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#Intelligent_Computing_and_Visualization"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dian_ilkom@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197306192002122001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dian Eka Ratnawati, S.Si, M.Kom</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.42</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#edy_santoso -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#edy_santoso">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_KEMAHASISWAAN"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edy144@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197404142003121004</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edy Santoso, S.Si, M.Kom</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#fitri_utraningrum -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#fitri_utraningrum">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#magister_teknik_informatika"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">f3_ningrum@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smart Device Engineering</www:focus_subject>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fitri Utaminingrum, Dr. Eng., S.T., M.T.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#gembong_edhi_setyawan -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#gembong_edhi_setyawan">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_unit"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#Robotics"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gembong@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">robotika</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2012087612011001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gembong Edhi Setyawan, S.T., M.T.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.12</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#heru_nurwasito -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#heru_nurwasito">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_AKADEMIK"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heru@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Berbasis Jaringan</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">196504021990021001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heru Nurwarsito, Ir., M.Kom</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#issa_arwani -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#issa_arwani">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#tekhnologi_informasi"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">issa.arwani@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multimedia, Game dan Mobile</www:focus_subject>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Issa Arwani, S.Kom., M.Sc.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#magister_teknik_informatika -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#magister_teknik_informatika">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#fitri_utraningrum"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#mardji -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#mardji">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">marji@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">196708011992031001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marji, Drs., M.T</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.12</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#pendidikan_tekhnologi_informasi -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#pendidikan_tekhnologi_informasi">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#satrio_agung"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#primantara_hari -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#primantara_hari">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">prima@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Berbasis Jaringan</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">196809121994031002</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ir. Primantara Hari Trisnawan, M.Sc.</www:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#satrio_agung -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#satrio_agung">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#pendidikan_tekhnologi_informasi"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">satrio@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information System </www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">198605212012121001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Satrio Agung W., S.Kom, M.Kom</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.43</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#senat -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#senat"/>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#sistem_informasi -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#sistem_informasi">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#department"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#pendidikan_tekhnologi_informasi"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#sistem_informasi"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#tekhnologi_informasi"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#Herman_Tolle"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.filkom.ub.ac.id#sistem_informasi"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.filkom.ub.ac.id#department"/>
+        <rdfs:comment rdf:resource="http://www.filkom.ub.ac.id#department"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#suprapto -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#suprapto">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#WAKIL_DEKAN_BIDANG_UMUM_DAN_KEUANGAN"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spttif@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information System</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197107271996031001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Suprapto, S.T., M.T.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#sutrisno -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#sutrisno">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">H</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trisno@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">195703251987011001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sutrisno, Ir., M.T</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.1</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#tekhnologi_informasi -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#tekhnologi_informasi">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#issa_arwani"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#teknik_informatika -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#teknik_informatika">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#department"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#magister_teknik_informatika"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#teknik_informatika"/>
+        <www:has_subOrganization rdf:resource="http://www.filkom.ub.ac.id#teknik_komputer"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#tri_astoto_kurniawan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#teknik_komputer -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#teknik_komputer">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#programme"/>
+        <www:head_by rdf:resource="http://www.filkom.ub.ac.id#Dahnial_Syauqy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#tri_astoto_kurniawan -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#tri_astoto_kurniawan">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_department"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#teknik_informatika"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triak@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rekayasa Perangkat Lunak</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197105182003121001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tri Astoto Kurniawan, S.T, M.T, Ph.D</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#wayan_firdaus_mahmudy -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#wayan_firdaus_mahmudy">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#DEKAN"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:building rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</www:building>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wayanfm@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Komputasi Cerdas</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">197209191997021001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wayan Firdaus Mahmudy, S.Si, M.T, Ph.D.</www:name>
+        <www:room rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</www:room>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.filkom.ub.ac.id#yusi_tyroni -->
+
+    <owl:NamedIndividual rdf:about="http://www.filkom.ub.ac.id#yusi_tyroni">
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#head_of_programme"/>
+        <rdf:type rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:is_head_of rdf:resource="http://www.filkom.ub.ac.id#sistem_informasi"/>
+        <www:is_member_of rdf:resource="http://www.filkom.ub.ac.id#senat"/>
+        <www:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yusi_tyro@ub.ac.id</www:email>
+        <www:focus_subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information System</www:focus_subject>
+        <www:identity_number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">198002282006041001</www:identity_number>
+        <www:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yusi Tyroni Mursityo, S.Kom., M.A.B.</www:name>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
